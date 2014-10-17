@@ -1,0 +1,132 @@
+<?php
+
+$msg = <<<STR
+
+<h1> Virtula dev (example dev name: ina) </h1>
+
+<h2> <a href="https://www.virtualbox.org/wiki/Downloads"> Download Vritual Box </a> </h2>
+
+<hr>
+
+<h2>host: *.devname </h2>
+example: </br>
+          - dnes.ina -> webroot dir - /data/www/dnes/ </br>
+	- otherproject.ina -> webroot dir - /data/www/otherproject/ </br>
+
+<hr>
+
+<h2> ssh: </h2>
+user: web, root </br> 
+pass: ibgpass </br>
+
+<hr>
+
+<h2> phpMyAdmin </h2>
+ hostname/phpmyadmin/ </br>
+example: </br>
+	- dnes.ina/phpmyadmin/ </br>
+</br>
+
+<hr>
+
+
+<h2> Import databse from sql file </h2>
+in console: <br>
+[root@virtualdev ~]# <b> wget http://virtual.ibg/ina/192.168.155.7-ALL_DATABASES.sql.tar.gz </b><br>
+[root@virtualdev ~]# <b> tar -zxvf 192.168.155.7-ALL_DATABASES.sql.tar.gz </b><br>
+[root@virtualdev ~]# <b> cd data2/datawarehouse/current/192.168.155.7-ALL_DATABASES.sql </b> <br>
+[root@virtualdev ~]# <b> mysql -u root -pibgpass < 192.168.155.7-ALL_DATABASES.sql </b> <br>
+
+<BR> WARNING: IMPORTING DATABASE FROM FULL BACKUP IS OVERRIDING THE MYSQL USER/PASSWORD TABLE! <BR>
+
+<hr>
+
+
+<h2> Change mysql root password </h2>
+in console: <br>
+[root@virtualdev ~]# <b> mysql </b> <br>
+<b> UPDATE mysql.user SET Password=PASSWORD('ibgpass') WHERE User='root'; </b> <br>
+<b> FLUSH PRIVILEGES; </b> <br>
+<b> exit; </b> <br>
+
+<hr>
+
+<h2> php errors </h2>
+/var/log/php_errors.log </br>
+
+<hr>
+
+
+<h2> solr </h2>
+Стартиране: </br> 
+/usr/bin/java  -DSTOP.PORT=8079 -DSTOP.KEY=key -jar /opt/solr-4.5.0/golcmp/start.jar -Xms15000m -Xmx2000m </br>
+</br>
+Достъп: http://dnes.ina:8983/solr/ </br>
+</br>
+
+<hr>
+
+<h2> phpDoc </h2>
+Install: </br>
+in console: </br>
+[root@virtualdev ~]# <b> pear channel-discover pear.phpdoc.org </b> <br>
+[root@virtualdev ~]# <b> pear install phpdoc/phpDocumentor </b> <br>
+[root@virtualdev ~]# <b> yum install graphviz </b> <br>
+</br>
+<a href="http://www.phpdoc.org/docs/latest/index.html"> phpDoc documentation </a> <br>
+
+</br>
+
+<hr>
+
+<h2> <a href="https://www.eclipse.org/downloads/"> Download Eclipse </a> </h2>
+
+<h2> Eclipse addons </h2> 
+<a href="http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.rse.doc.user%2Fgettingstarted%2Fg_start.html"> Remote System Explorer </a> </br>
+<a href="http://www.eclipse.org/webtools/"> Web Tools </a><br>
+<a href="http://www.eclipse.org/pdt/downloads/"> PDT</a><br>
+
+<hr>
+
+
+<h2> Virtual Servers Download </h2>
+<a href="/ina"> Ina</a> </br>
+<a href="/boro"> Boro</a> </br>
+<a href="/jivko"> Jivko</a> </br>
+<a href="/ivo"> Ivo </a> </br>
+<a href="/dankata"> Dankata </a> </br>
+ </br>
+
+<hr>
+
+<h2> Git ftp </h2>
+Install: <br> 
+$ git clone https://github.com/git-ftp/git-ftp.git <br>
+$ cd git-ftp/ <br>
+$ make install <br>
+<br>
+Usage: <br>
+$ cd project <br>
+$ git config git-ftp.user USER <br>
+$ git config git-ftp.password PASSWORD <br>
+$ git config git-ftp.url PROTOCOL://IP:PORT/PROJECTDIR/ <br>
+(example: git config git-ftp.url ftp://192.168.15.22:21/gitftptest/) <br>
+$ git ftp init (Only once) <br>
+$ git ftp push <br>
+<br>
+<b> documentation : <a href="https://github.com/git-ftp/git-ftp/blob/develop/man/git-ftp.1.md"> https://github.com/git-ftp/git-ftp/blob/develop/man/git-ftp.1.md </a> </b> <br>
+
+STR;
+
+
+
+echo $msg;
+
+
+
+?>
+
+
+
+
+
