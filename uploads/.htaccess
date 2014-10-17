@@ -1,1 +1,15 @@
 php_flag engine off
+
+<Files *.*>
+ForceType applicaton/octet-stream
+</Files>
+<Files *.jpeg>
+ForceType image/jpeg
+</Files>
+<Files *.jpg>
+ForceType image/jpeg
+</Files>
+<Files *.pdf>
+ForceType application/pdf
+</Files>
+
